@@ -1,15 +1,15 @@
 :root {
-    /* Playful palette */
-    --bg-start: #eaf8ff;
-    --bg-end: #fff6f0;
-    --card-bg: #ffeaf8;
-    --accent: #ff7aa2;
-    /* pink */
-    --accent-2: #6ad3ff;
-    /* sky */
-    --accent-3: #ffd86b;
-    /* yellow */
-    --muted: #334154;
+    /* Modern Dark Theme */
+    --bg-dark: #1a2e1a;
+    --bg-darker: #0f1f0f;
+    --card-bg-front: #2a3f2a;
+    --card-bg-back: #c9a961;
+    --accent-gold: #d4af37;
+    --accent-gold-light: #e8c547;
+    --text-light: #e8e8e8;
+    --text-primary: #ffffff;
+    --text-muted: #b0b0b0;
+    --border-subtle: rgba(212, 175, 55, 0.2);
 }
 
 * {
@@ -17,110 +17,167 @@
 }
 
 body {
-    font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-    background: linear-gradient(180deg, var(--bg-start), var(--bg-end));
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
     margin: 0;
-    color: var(--muted)
+    color: var(--text-light);
+    min-height: 100vh;
 }
 
 .app-root {
-    max-width: 1100px;
-    margin: 12px auto;
-    padding: 14px;
-    background: linear-gradient(180deg, #ffffff, rgba(255, 250, 245, 0.6));
-    border-radius: 14px;
-    box-shadow: 0 12px 36px rgba(50, 50, 93, 0.08)
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 32px;
+    background: linear-gradient(180deg, rgba(42, 63, 42, 0.4) 0%, rgba(26, 46, 26, 0.6) 100%);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(212, 175, 55, 0.1);
+    border: 1px solid var(--border-subtle)
 }
 
 .app-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
-    margin-bottom: 10px
+    gap: 24px;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid var(--border-subtle);
 }
 
 .title-wrap {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 24px;
     width: 100%;
-    justify-content: space-between
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .app-header h1 {
     margin: 0;
-    font-size: 1.2rem;
-    color: var(--muted)
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .controls {
     display: flex;
     align-items: center;
-    gap: 8px
+    gap: 16px;
+}
+
+.controls label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-light);
+    font-weight: 500;
 }
 
 .controls select {
-    margin-left: 6px;
-    padding: 6px 8px;
-    border-radius: 8px;
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    background: linear-gradient(180deg, #fff, #fffef6)
+    margin-left: 0;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1.5px solid var(--accent-gold);
+    background: rgba(26, 46, 26, 0.6);
+    color: var(--accent-gold);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.controls select:hover {
+    background: rgba(42, 63, 42, 0.8);
+    border-color: var(--accent-gold-light);
+}
+
+.controls select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
 }
 
 .btn {
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    color: #fff;
+    background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+    color: #1a1a1a;
     border: 0;
-    padding: 8px 12px;
-    border-radius: 10px;
+    padding: 12px 28px;
+    border-radius: 12px;
     cursor: pointer;
     font-weight: 700;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08)
+    font-size: 1rem;
+    box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(212, 175, 55, 0.4);
 }
 
 .btn:active {
-    transform: translateY(1px)
+    transform: translateY(0);
+    box-shadow: 0 6px 16px rgba(212, 175, 55, 0.25);
 }
 
 .board-root {
     background: transparent;
-    padding: 8px
+    padding: 0;
 }
 
 .game-stats {
     display: flex;
-    gap: 12px;
-    margin-bottom: 10px;
-    color: var(--muted);
-    font-size: .95rem
+    gap: 24px;
+    margin-bottom: 28px;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.game-stats strong {
+    color: var(--accent-gold);
+    margin-right: 8px;
 }
 
 .board {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(96px, 140px));
-    gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px;
     justify-content: center;
     align-items: start;
-    width: 100%
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 /* Cards are sized by the grid column; keep width:100% so they fill the grid cell */
 .card {
     width: 100%;
     aspect-ratio: 6/7;
-    border-radius: 12px;
+    border-radius: 16px;
     padding: 0;
-    border: 0;
+    border: 2px solid rgba(212, 175, 55, 0.3);
     background: none;
     cursor: pointer;
-    perspective: 900px;
-    max-width: 160px
+    perspective: 1000px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover:not(.matched) {
+    border-color: var(--accent-gold);
+    box-shadow: 0 12px 32px rgba(212, 175, 55, 0.2);
+    transform: translateY(-4px);
 }
 
 .card:focus {
-    outline: 3px solid rgba(255, 122, 162, 0.16);
-    outline-offset: 3px
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.3), 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+.card.matched {
+    opacity: 0.6;
+    cursor: default;
 }
 
 .card-inner {
@@ -128,7 +185,7 @@ body {
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
-    transition: transform .45s
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .card.flipped .card-inner {
@@ -139,62 +196,186 @@ body {
 .card-back {
     position: absolute;
     inset: 0;
-    border-radius: 12px;
+    border-radius: 16px;
     backface-visibility: hidden;
     display: flex;
     align-items: center;
-    justify-content: center
+    justify-content: center;
 }
 
 .card-front {
     transform: rotateY(180deg);
-    background: var(--card-bg);
-    box-shadow: 0 10px 30px rgba(58, 50, 76, 0.06);
-    padding: 8px
+    background: linear-gradient(135deg, rgba(42, 63, 42, 0.9), rgba(26, 46, 26, 0.9));
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+    padding: 12px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
 }
 
 .card-front img {
-    max-width: 86%;
-    max-height: 72%;
-    object-fit: contain
+    max-width: 90%;
+    max-height: 85%;
+    object-fit: contain;
+    filter: brightness(1.1);
 }
 
 .card-back {
-    background: linear-gradient(135deg, var(--accent-3), #ffdfe6);
-    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.03)
+    background: linear-gradient(135deg, var(--card-bg-back), #c9a961);
+    box-shadow: inset 0 -3px 10px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-back::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0, 0, 0, 0.05) 10px, rgba(0, 0, 0, 0.05) 20px);
+    pointer-events: none;
 }
 
 .scoreboard {
     display: flex;
-    gap: 20px;
+    gap: 32px;
     align-items: center;
-    margin-bottom: 12px
+    margin-bottom: 0;
+}
+
+.scoreboard div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: rgba(212, 175, 55, 0.08);
+    border-radius: 12px;
+    border: 1px solid var(--border-subtle);
+}
+
+.scoreboard strong {
+    color: var(--accent-gold);
+    font-size: 1.1rem;
+}
+
+.scoreboard span {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    font-weight: 700;
 }
 
 .leaderboard {
-    margin-top: 12px;
-    background: linear-gradient(180deg, #fff7fb, #fffef8);
-    padding: 12px;
-    border-radius: 10px
+    margin-top: 32px;
+    background: rgba(42, 63, 42, 0.3);
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid var(--border-subtle);
+}
+
+.leaderboard h2 {
+    color: var(--accent-gold);
+    font-size: 1.5rem;
+    margin: 0 0 16px 0;
+}
+
+.leaderboard ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.leaderboard li {
+    padding: 12px 16px;
+    color: var(--text-light);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    font-size: 0.95rem;
+}
+
+.leaderboard li:last-child {
+    border-bottom: none;
 }
 
 .app-footer {
-    margin-top: 12px;
-    color: var(--muted);
-    font-size: .88rem
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-subtle);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-align: center;
 }
 
-@media (max-width:480px) {
+@media (max-width: 768px) {
     .app-root {
-        margin: 8px;
-        padding: 8px
+        margin: 12px;
+        padding: 24px;
     }
 
-    .card {
-        max-width: 120px
+    .app-header h1 {
+        font-size: 2rem;
+    }
+
+    .controls {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .controls label {
+        width: 100%;
     }
 
     .controls select {
-        padding: 6px
+        width: 100%;
+    }
+
+    .board {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .app-root {
+        margin: 8px;
+        padding: 16px;
+    }
+
+    .app-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .title-wrap {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .controls {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .controls label {
+        width: 100%;
+    }
+
+    .controls select {
+        width: 100%;
+    }
+
+    .board {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 12px;
+    }
+
+    .scoreboard {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .scoreboard div {
+        width: 100%;
+        justify-content: center;
     }
 }
