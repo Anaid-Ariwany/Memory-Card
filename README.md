@@ -18,3 +18,29 @@ Go play around with this [student's solution](https://heldersrvio.github.io/memo
 1. As always, push the project to GitHub, and don't forget to deploy it.
 
 </div>
+
+## Project Scaffold
+
+I scaffolded a production-ready React app (Vite) in this workspace. Key files:
+
+- [package.json](package.json)
+- [index.html](index.html)
+- [src/App.jsx](src/App.jsx)
+- [src/components/Board.jsx](src/components/Board.jsx)
+- [src/components/Card.jsx](src/components/Card.jsx)
+- [src/components/Scoreboard.jsx](src/components/Scoreboard.jsx)
+- [src/components/Leaderboard.jsx](src/components/Leaderboard.jsx)
+- [src/utils/pokemon.js](src/utils/pokemon.js)
+- [src/styles.css](src/styles.css)
+
+How to run locally:
+
+```bash
+npm install
+npm run dev
+```
+
+Notes:
+- The game uses the PokeAPI to fetch images. If requests fail, placeholders are used.
+- Best scores and a simple local leaderboard are persisted to localStorage.
+
