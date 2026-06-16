@@ -99,7 +99,7 @@ export default function Board({ difficulty = 'medium' }) {
                 <div>Matches: {matches}/{pairs}</div>
                 <div>Time: {Math.floor(seconds / 60)}:{String(seconds % 60).padStart(2, '0')}</div>
             </div>
-            <div className={`board grid-${Math.sqrt(total)}`} role="grid">
+            <div className="board" role="grid">
                 {cards.map(card => (
                     <Card key={card.uid} card={card} onClick={() => handleClick(card)} />
                 ))}
